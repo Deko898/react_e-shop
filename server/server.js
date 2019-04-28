@@ -10,7 +10,7 @@ const async = require('async');
 require('dotenv').config();
 
 mongoose.Promise = global.Promise;
-console.log(process.env.MONGODB_URI, "URIII")
+
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true
 });
