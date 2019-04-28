@@ -14,6 +14,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true
 });
+console.log(process.env.NODE_ENV, "NODE ENV TOP")
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -23,11 +24,11 @@ app.use(cookieParser());
 app.use(express.static('client/build'));
 
 
-cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.CLOUD_API_KEY,
-    api_secret: process.env.CLOUD_API_SECRET
-})
+// cloudinary.config({
+//     cloud_name: process.env.CLOUD_NAME,
+//     api_key: process.env.CLOUD_API_KEY,
+//     api_secret: process.env.CLOUD_API_SECRET
+// })
 
 // Models
 const {
@@ -529,7 +530,7 @@ app.post('/api/users/update_profile', auth, (req, res) => {
 })
 
 // DEFAULT
-console.log(process.env.NODE_ENV,"NODE ENV")
+console.log(process.env.NODE_ENV, "NODE ENV BOTTOM")
 if (process.env.NODE_ENV === 'PRODUCTION') {
     const path = require("path");
     app.get("*", (req, res) => {
