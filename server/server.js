@@ -533,9 +533,9 @@ app.post('/api/users/update_profile', auth, (req, res) => {
 console.log(process.env.NODE_ENV, "NODE ENV BOTTOM")
 if (process.env.NODE_ENV === 'production') {
     const path = require("path");
-    app.get("*", (req, res) => {
+    app.get("/*", (req, res) => {
         console.log("PATH: ", __dirname)
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
     })
 }
 
